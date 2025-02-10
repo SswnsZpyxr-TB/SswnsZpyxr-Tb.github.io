@@ -64,6 +64,56 @@
             padding: 0 5%;
         }
 
+        /* 增强个人简介模块 */
+        .profile-section {
+            display: grid;
+            grid-template-columns: 150px 1fr;
+            gap: 2rem;
+            background: rgba(255,255,255,0.95);
+            padding: 2.5rem;
+            border-radius: 20px;
+            margin: 3rem 0;
+            position: relative;
+            border: 1px solid rgba(42,111,151,0.1);
+        }
+
+        .profile-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin: 1.5rem 0;
+        }
+
+        .skill-tag {
+            background: var(--primary-color);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 15px;
+            font-size: 0.9em;
+            transition: transform 0.2s;
+        }
+
+        /* 社交链接样式 */
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-links a {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            transition: transform 0.3s;
+        }	
+		
         /* 个人展示区 */
         .hero {
             text-align: center;
@@ -145,6 +195,19 @@
             .nav-links { justify-content: center; }
             .hero { padding: 2rem 1rem; }
         }
+		 /* 新增AI声明样式 */
+        .ai-badge {
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            background: linear-gradient(45deg, #2A6F97, #468FAF);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 25px;
+            font-size: 0.9em;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+            transform: rotate(5deg);
+        }
     </style>
 </head>
 <body>
@@ -158,37 +221,76 @@
     </nav>
 
     <div class="container">
-        <section class="hero">
+        <!-- 增强的个人简介 -->
+        <section class="profile-section" id="profile">
+            <img src="./head.jpg" alt="个人头像" class="profile-photo">
+            <div>
+                <h2>技术探险者 • Coder</h2>
+                <p class="bio-text">
+					🌟 注意！！！以下内容为AI自己编撰<br>
+                    🌟 六年全栈开发者，专注于云原生与AI工程化实践。<br>
+                    🚀 主导过日均亿级流量的微服务架构设计，开源项目Star数累计15k+。<br>
+                    💡 热爱技术布道，多次在QCon、ArchSummit等大会担任演讲嘉宾。
+                </p>
+                
+                <div class="skill-tags">	
+                    <span class="skill-tag">Kubernetes</span>
+                    <span class="skill-tag">LLM优化</span>
+                    <span class="skill-tag">分布式系统</span>
+                    <span class="skill-tag">Rust开发</span>
+                </div>
+
+                <div class="social-links">
+                    <a href="https://github.com/SswnsZpyxr-TB" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://twitter.com/yourhandle" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="mailto:your@email.com"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+        </section>
+		
+		<section class="hero">
             <h1>欢迎来到我的数字花园 🌱</h1>
             <p>这里记录技术探索的点滴 | 全栈开发 | 开源贡献者</p>
             <div class="tech-stack">
-                <div class="tech-item">Test1 Skill 1</div>
-                <div class="tech-item">Test1 Skill 2</div>
-                <div class="tech-item">Test1 Skill 3</div>
-                <div class="tech-item">Test1 Skill 4</div>
-                <div class="tech-item">Test1 Skill 5</div>
+                <div class="tech-item">React</div>
+                <div class="tech-item">Go</div>
+                <div class="tech-item">Rust</div>
+                <div class="tech-item">K8s</div>
+                <div class="tech-item">AI</div>
             </div>
         </section>
 
         <section class="articles">
             <article class="article-card">
-                <h3>测试文章标题1</h3>
+                <h3>深入理解WebAssembly运行时</h3>
                 <p>探索Wasm在现代云原生架构中的应用实践...</p>
                 <time>2024-03-15</time>
             </article>
             <article class="article-card">
-                <h3>测试文章标题2</h3>
+                <h3>分布式系统的可靠通信实践</h3>
                 <p>基于gRPC和quad容错算法的实现细节...</p>
                 <time>2024-03-12</time>
             </article>
             <article class="article-card">
-                <h3>测试文章标题3</h3>
+                <h3>LLM应用优化实战记录</h3>
                 <p>大语言模型推理性能提升300%的优化历程...</p>
                 <time>2024-03-08</time>
             </article>
         </section>
+		
+		<!-- AI生成声明角标 -->
+        <div class="ai-badge">
+            <i class="fas fa-robot"></i> AI辅助生成
+        </div>
+		
     </div>
 
+    <!-- AI版权声明 -->
+    <footer style="text-align: center; padding: 2rem; color: var(--primary-color);">
+        <p>🚀 本页面由深度求索大模型（DeepSeek-R1）协助设计与生成</p>
+        <p>📄 基于AGPL-3.0协议开源，欢迎在保留声明的基础上自由使用</p>
+    </footer>
+	
     <script>
         // 添加视差滚动效果
         window.addEventListener('scroll', () => {
