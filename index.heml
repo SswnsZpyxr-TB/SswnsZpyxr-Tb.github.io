@@ -1,1 +1,211 @@
-Hello!
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>‖SswnsZpyxr-TB的技术博客‖</title>
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        /* 基础样式 */
+        :root {
+            --primary-color: #2A6F97;
+            --secondary-color: #468FAF;
+            --accent-color: #89C2D9;
+            --light-color: #F5F5F5;
+            --dark-color: #1A1A1A;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--light-color) 50%, #fff 50%);
+            min-height: 100vh;
+            line-height: 1.6;
+            color: var(--dark-color);
+        }
+
+        /* 导航栏 */
+        .navbar {
+            backdrop-filter: blur(10px);
+            background: rgba(255,255,255,0.9);
+            padding: 1.5rem 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: flex-end;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+        }
+
+        /* 主内容区 */
+        .container {
+            max-width: 1200px;
+            margin: 8rem auto 4rem;
+            padding: 0 5%;
+        }
+
+        /* 个人展示区 */
+        .hero {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: linear-gradient(120deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border-radius: 20px;
+            transform: perspective(1000px) rotateX(10deg);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            overflow: hidden;
+            position: relative;
+            margin-bottom: 4rem;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, 
+                transparent 45%, 
+                rgba(255,255,255,0.1) 50%,
+                transparent 55%);
+            animation: shine 8s infinite;
+        }
+
+        /* 技术栈展示 */
+        .tech-stack {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .tech-item {
+            background: rgba(255,255,255,0.1);
+            padding: 1rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        /* 文章卡片 */
+        .articles {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .article-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            cursor: pointer;
+        }
+
+        /* 交互动画 */
+        @keyframes shine {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            100% { transform: translate(100%, 100%) rotate(360deg); }
+        }
+
+        .article-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .tech-item:hover {
+            transform: scale(1.1);
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .nav-links { justify-content: center; }
+            .hero { padding: 2rem 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <ul class="nav-links">
+            <li><a href="#home">首页</a></li>
+            <li><a href="#posts">文章</a></li>
+            <li><a href="#projects">项目</a></li>
+            <li><a href="#about">关于</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <section class="hero">
+            <h1>欢迎来到我的数字花园 🌱</h1>
+            <p>这里记录技术探索的点滴 | 全栈开发 | 开源贡献者</p>
+            <div class="tech-stack">
+                <div class="tech-item">React</div>
+                <div class="tech-item">Go</div>
+                <div class="tech-item">Rust</div>
+                <div class="tech-item">K8s</div>
+                <div class="tech-item">AI</div>
+            </div>
+        </section>
+
+        <section class="articles">
+            <article class="article-card">
+                <h3>深入理解WebAssembly运行时</h3>
+                <p>探索Wasm在现代云原生架构中的应用实践...</p>
+                <time>2024-03-15</time>
+            </article>
+            <article class="article-card">
+                <h3>分布式系统的可靠通信实践</h3>
+                <p>基于gRPC和quad容错算法的实现细节...</p>
+                <time>2024-03-12</time>
+            </article>
+            <article class="article-card">
+                <h3>LLM应用优化实战记录</h3>
+                <p>大语言模型推理性能提升300%的优化历程...</p>
+                <time>2024-03-08</time>
+            </article>
+        </section>
+    </div>
+
+    <script>
+        // 添加视差滚动效果
+        window.addEventListener('scroll', () => {
+            const hero = document.querySelector('.hero');
+            const scrolled = window.pageYOffset;
+            hero.style.transform = `perspective(1000px) rotateX(${10 - scrolled * 0.02}deg)`;
+        });
+
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
